@@ -26,13 +26,13 @@ for i in range(1,len(number)+1):
     number_decimal += int(number[-i])*basis**(i-1)
 print("Liczba dziesietnie wynosi: " + str(number_decimal)) """
  
-code_table = {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '9': 8, 'A': 10, 'a': 10, 'B': 11, 'b': 11, 'C': 12, 'c': 12, 'D': 13, 'd': 13, 'E': 14, 'e': 14, 'F': 15, 'f': 15}
- 
+code_table = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '9': 8, 'A': 10, 'a': 10, 'B': 11, 'b': 11, 'C': 12, 'c': 12, 'D': 13, 'd': 13, 'E': 14, 'e': 14, 'F': 15, 'f': 15}
+code_table_reverse = {0: '0', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: '8', 9: '9', 10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'}
 def convert(number, basisIn, basisOut):
     value = 0
     number = str(number)
     for i in range(1, len(number)+1):
-        value += int((number)[-i])*basisIn**(i-1)
+        value += code_table[(number)[-i]]*basisIn**(i-1)
     print(value)
     length = 0
     while basisOut**length < value:
@@ -40,6 +40,6 @@ def convert(number, basisIn, basisOut):
     print(length)
     for i in range(1, basisOut):
         print(i)
-convert(12, 16, 4)
+convert(92, 16, 4)
 
 print(code_table['e'])
